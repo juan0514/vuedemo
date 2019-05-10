@@ -3,35 +3,32 @@
   <div id="app">
       <div class="appPhone">
          <div class="phoneHeader">
-         	  <a href="#"  class="cancle-home" v-if="step == 2 || step == 3" @click="goToHome">Cancle</a>
+         	<a href="#"  class="cancle-home" v-if="step == 2 || step == 3" @click="goToHome">Cancle</a>
             <img src="./img/timg.png" alt="" />
             <a href="#"  class="cancle-next" v-if="step == 2 " @click="step = 3" >Next</a>
             <a href="#"  class="cancle-next" v-if="step == 3 " @click = "release">Share</a>
          </div> 
-            
+           
 	          <phonebody  :posts="posts" 
-						          	:step="step" 
-						          	:img="img" 
-						          	:filters="filters"
-						          	v-model="caption"
-						          	@inputTxet="inputTxet">
-						          	
-	          </phonebody>
+						  :step="step" 
+						  :img="img" 
+						  :filters="filters"
+						  @inputText="inputText">
+			  </phonebody>
 						         
          <div class="phoneFooter">
-            <div class="homg-cta"
-            	   @click="goToHome">
-               <img src="./img/home.jpg" alt="" />
+            <div class="homg-cta" @click="goToHome">
+                <img src="./img/home.jpg">
             </div>
             <div class="icon">
-            	<input type="file" 
+            	 <input  type="file" 
             		     id="file" 
             		     style="display: none;"
             		     @change="uploadPic"
             		     :disabled="step !== 1"/>
-            	<label for="file">
+            	 <label for="file">
             		 <img src="./img/jiahao.jpg"/>
-            	</label>
+            	 </label>
             </div>
          </div>
       </div>
@@ -62,7 +59,7 @@ export default {
 			img:'',
 			filters,
 			filter:"",
-			caption:""
+			caption:"cccc"
 		}
 	},
   components: {
@@ -85,24 +82,24 @@ export default {
 			  },
 			  goToHome(){
 			  	this.step = 1;
-					this.caption = "";
+				this.caption = "";
 			  },
-			  inputTxet(data){
+			  inputText(data){
 			  	this.caption = data;
 			  },
 			  release(){
-            const post = {
-            	  username: "juanjuan",
-					      userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
-					      postImage:this.img,
-					      likes: 0,
-					      hasBeenLiked: false,
-					      caption:this.caption,
-					      filter: this.filter
-            }
-            this.posts.unshift(post);
-            this.goToHome();
-			  }
+	            const post = {
+	            	  username: "juanjuan",
+						      userImage: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1211695/me_3.jpg",
+						      postImage:this.img,
+						      likes: 0,
+						      hasBeenLiked: false,
+						      caption:this.caption,
+						      filter: this.filter
+	                   }
+	             this.posts.unshift(post);
+	             this.goToHome();
+			   }
 			  
   }
   

@@ -54,7 +54,7 @@
 		},
 	    components:{
 	    	"vuegram-body" :vuegramBody,
-	    	vuegrampic
+	    	 vuegrampic
 	    },
 	    data(){
 	    	return {
@@ -66,7 +66,8 @@
 	    		this.styles = data;
 	    	},
 	    	inputText(event){
-	    		this.$emit("inputTxet",event.target.value)
+	    		this.$emit("inputText",event.target.value)
+	    		console.log(event.target.value)
 	    	}
 	    }
 	}
